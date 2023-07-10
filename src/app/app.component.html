@@ -1,12 +1,23 @@
+<h1>Eventos - event binding</h1>
+<button [disabled]="btnDisabled"> Enviar</button>
+<button (click)="toggleButton()">Toggle Button</button>
+<p>edad {{person.age}}</p>
+<button (click)="increaseAge()">Age ++</button>
+
+<hr/>
 <h1>Propiedades - Propierty binding</h1>
+<!-- configurar propiedades -->
 <button [disabled]="btnDisabled"> Enviar</button>
 <input type="text" [value]="person.name">
 <progress [value]="person.age" max="100"></progress>
 <img [src]="person.avatar" alt="" width="100">
 
 <hr/>
-<h1>hola mundo</h1>
+<!-- configurar contenido -->
+<h1>hola mundo - String interpolation</h1>
 <h2>{{'hola mundo - '.repeat(5)}}</h2>
 <p>3 + 3 = {{ 3 + 3}}</p>
 <h3>hola soy {{name}} y tengo {{age}}</h3>
 <img src={{imagen}} alt="">
+
+

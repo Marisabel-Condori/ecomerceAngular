@@ -15,6 +15,13 @@ export class AppComponent {
     name: 'Mari',
     age:18,
     avatar: 'https://assets.dev-filo.dift.io/img/2021/08/05/rocket_portada_sq.jpg'
+  }
 
+  toggleButton(){
+    this.btnDisabled = !this.btnDisabled;
+  }
+
+  increaseAge(){
+    this.person.age +=1;
   }
 }
