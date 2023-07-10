@@ -1,33 +1,49 @@
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName">
+<button (click)="addName()">Add name</button>
+<ul>
+  <li *ngIf="names.length===0">No hay nombres</li>
+  <li *ngFor="let name of names; index as i">
+    {{i}} {{name}}
+    <button (click)="deleteName(i)">Delete</button>
+  </li>
+</ul>
+
+<hr />
 <h1>*ngIf</h1>
-<input type="text" required [(ngModel)] = "person.name">
-<p *ngIf = " person.name == 'Mari' " >Soy Mari</p>
-<p *ngIf = " person.name == 'ssdd' && person.age === 18; else myBlock" >Soy ssdd</p>
+<input type="text" required [(ngModel)]="person.name">
+<p *ngIf=" person.name == 'Mari' ">Soy Mari</p>
+<p *ngIf=" person.name == 'ssdd' && person.age === 18; else myBlock">Soy ssdd</p>
 <ng-template #myBlock>
   <p>Bloque de else</p>
 </ng-template>
 
-<hr/>
+<hr />
 <h1>NgModel</h1>
 <p>Name {{person.name}}</p>
-<input type="text" required #nameInput="ngModel" [(ngModel)] = "person.name">
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name">
 <p>Valid: {{nameInput.valid}}</p>
 <p>Age {{person.age}}</p>
-<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)] = "person.age">
+<input type="number" max="18" min="10" required #ageInput="ngModel" [(ngModel)]="person.age">
 <p>Valid: {{ageInput.valid}}</p>
 
-<hr/>
+<hr />
 <h1>Eventos - event binding</h1>
 <button [disabled]="btnDisabled"> Enviar</button>
 <button (click)="toggleButton()">Toggle Button</button>
 <p>edad {{person.age}}</p>
 <button (click)="increaseAge()">Age ++</button>
 <div class="box" (scroll)="onScroll($event)">
-  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit animi, suscipit adipisci aut necessitatibus repellat facere eveniet deleniti consectetur. Omnis accusamus ducimus rem nulla inventore, dolorum aliquam labore sunt quidem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum harum eos omnis excepturi architecto unde necessitatibus pariatur nam recusandae odit laudantium iure eaque inventore vitae in, nostrum rem. Provident, accusantium!</p>
+  <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit animi, suscipit adipisci aut necessitatibus
+    repellat facere eveniet deleniti consectetur. Omnis accusamus ducimus rem nulla inventore, dolorum aliquam labore
+    sunt quidem. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum harum eos omnis excepturi architecto
+    unde necessitatibus pariatur nam recusandae odit laudantium iure eaque inventore vitae in, nostrum rem. Provident,
+    accusantium!</p>
 </div>
 <p>Nombre {{person.name}}</p>
 <input type="text" [value]="person.name" (keyup)="changeName($event)">
 
-<hr/>
+<hr />
 <h1>Propiedades - Propierty binding</h1>
 <!-- configurar propiedades -->
 <button [disabled]="btnDisabled"> Enviar</button>
@@ -35,12 +51,10 @@
 <progress [value]="person.age" max="100"></progress>
 <img [src]="person.avatar" alt="" width="100">
 
-<hr/>
+<hr />
 <!-- configurar contenido -->
 <h1>hola mundo - String interpolation</h1>
 <h2>{{'hola mundo - '.repeat(5)}}</h2>
 <p>3 + 3 = {{ 3 + 3}}</p>
 <h3>hola soy {{name}} y tengo {{age}}</h3>
 <img src={{imagen}} alt="">
-
-

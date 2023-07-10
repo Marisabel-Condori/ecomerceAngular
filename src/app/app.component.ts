@@ -17,6 +17,9 @@ export class AppComponent {
     avatar: 'https://assets.dev-filo.dift.io/img/2021/08/05/rocket_portada_sq.jpg'
   }
 
+  names: string[] = ['mari', 'nico', 'eimy']
+  newName ='';
+
   toggleButton(){
     this.btnDisabled = !this.btnDisabled;
   }
@@ -33,5 +36,14 @@ export class AppComponent {
   changeName(event:Event){
     const element = event.target as HTMLInputElement;
     this.person.name = element.value
+  }
+
+  addName(){
+    this.names.push(this.newName);
+    this.newName='';
+  }
+
+  deleteName(index:number){
+    this.names.splice(index,  1)
   }
 }
