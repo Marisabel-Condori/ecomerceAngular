@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'my-store';
+  name = 'Mari';
+  age = 20;
+  imagen = 'https://assets.dev-filo.dift.io/img/2021/08/05/rocket_portada_sq.jpg'
 }
