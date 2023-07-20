@@ -7,10 +7,17 @@ import {product} from './product.model';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  name = 'Mari';
-  age = 20;
+  widthImg=10
+  name = 'Mari'
+  age = 20
   imagen = 'https://assets.dev-filo.dift.io/img/2021/08/05/rocket_portada_sq.jpg'
   btnDisabled = true;
+
+  register={
+    name:'',
+    email:'',
+    password:' '
+  }
 
   person = {
     name: 'Mari',
@@ -20,6 +27,12 @@ export class AppComponent {
 
   names: string[] = ['mari', 'nico', 'eimy']
   newName = '';
+
+  box={
+    width: 100,
+    height: 100,
+    background: 'red'
+  }
 
   products: product[] = [
     {
@@ -79,5 +92,9 @@ export class AppComponent {
 
   deleteName(index: number) {
     this.names.splice(index, 1)
+  }
+  onRegister(){
+    console.log(this.register);
+
   }
 }

@@ -1,17 +1,83 @@
+<h1>Formulario</h1>
+<form (ngSubmit)="onRegister()" #myForm="ngForm">
+  <div class="input-group">
+    <label for="name">Nombre</label>
+    <input type="text" name="name" required #nameInput5="ngModel" id="name" [(ngModel)]="register.name">
+    <p class="message-error" [class.invalid]="nameInput5.invalid">El campo es requerido</p>
+  </div>
+  <div class="input-group">
+    <label for="name">Email</label>
+    <input type="email" name="email" required #email="ngModel" id="email" [(ngModel)]="register.email">
+    <p class="message-error" [class.invalid]="email.invalid">El campo es requerido</p>
+  </div>
+  <div class="input-group">
+    <label for="name">Password</label>
+    <input type="password" name="password" required #password="ngModel" id="password" [(ngModel)]="register.password">
+    <p class="message-error" [class.invalid]="password.invalid">El campo es requerido</p>
+  </div>
+  <button [disabled]="myForm.invalid" type="submit" >Registrar</button>
+  <button >Login</button>
+</form>
+
+<hr />
+<h1>NgClass & style</h1>
+<input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name">
+<hr class="line-error" [ngClass]="{
+  'valid':nameInput4.valid,
+  'invalid':nameInput4.invalid
+}" />
+<p class="message-error" [class.invalid]="nameInput4.invalid">El campo es requerido</p>
+<div class="styles">
+  <div>
+    <input type="number" [(ngModel)]="box.width">
+    <input type="number" [(ngModel)]="box.height">
+    <input type="color" [(ngModel)]="box.background">
+  </div>
+  <div>
+    <div [ngStyle]="{
+      'width.px': box.width,
+      'height.px': box.height,
+      'background-color': box.background,
+      'display': 'block'
+    }">
+
+    </div>
+  </div>
+</div>
+
+<hr />
+<h1>class & style</h1>
+<input type="text" required #nameInput2="ngModel" [(ngModel)]="person.name">
+<p class="message-error" [class.invalid]="nameInput2.invalid">El campo es requerido</p>
+<label>Nombre</label>
+<input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name">
+<p [style.font-style]="nameInput3.invalid ? 'italic': 'normal'">Lorem ipsum dolor sit, amet consectetur adipisicing
+  elit. Blanditiis aliquid, eligendi at corporis sint similique ipsa quaerat veritatis fugiat quasi maxime voluptatibus
+  fuga aspernatur fugit voluptas in, veniam tenetur corrupti?</p>
+<div>
+  <div>
+    <input type="text" [(ngModel)]="widthImg">
+  </div>
+  <div>
+    <img [style.width.px]="widthImg " [src]="person.avatar">
+  </div>
+</div>
+
+<hr />
 <h1>nfSwitch</h1>
 <input type="text" required [(ngModel)]="person.name">
-<div [ngSwitch] ="person.name">
+<div [ngSwitch]="person.name">
   <p *ngSwitchCase="'mari'"> La persona es mari</p>
   <p *ngSwitchCase="'nico'"> La persona es nico</p>
   <p *ngSwitchCase="'eimy'"> La persona es eimy</p>
-  <p *ngSwitchDefault >No hace match</p>
+  <p *ngSwitchDefault>No hace match</p>
 </div>
 
 <hr />
 <h1>*ngFor Objs</h1>
 <div class="products--grid">
   <div *ngFor="let product of products">
-    <img [src]="product.image" alt="" >
+    <img [src]="product.image" alt="">
     <h2>{{product.price}}</h2>
     <p>{{product.name}}</p>
   </div>
